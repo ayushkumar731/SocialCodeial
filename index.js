@@ -6,6 +6,10 @@ const app=express();
 app.use(express.static('./assets'));
 app.use(expressLayouts);
 
+//extract style and scripts from sub page of the layout
+app.set('layout extractStyles',true);
+app.set('layout extractScripts',true);
+
 // use express router
 app.use('/',require('./routes'));
 
