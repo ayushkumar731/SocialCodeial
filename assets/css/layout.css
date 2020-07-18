@@ -1,4 +1,21 @@
-body{
+*{
     margin: 0;
-    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    background-color: black;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    height: 3rem;
+}
+footer{
+    background-color: black;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+    height: 3rem;
+    width: 100%;
 }
