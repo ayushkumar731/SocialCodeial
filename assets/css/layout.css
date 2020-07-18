@@ -8,7 +8,7 @@ header{
     width: 100%;
     color: white;
     padding: 10px;
-    height: 3rem;
+    height: auto;
 }
 footer{
     background-color: black;
