@@ -1,9 +1,12 @@
 const passport=require('passport');
-const User=require('../models/user');
 const LocalStrategy=require('passport-local').Strategy;
+const User=require('../models/user');
 
 
-passport.use(new LocalStrategy(
+// authentication using passport
+passport.use(new LocalStrategy({
+      usernameField: 'email'
+    },
     function(email, password, done) {
         //find user and establish the identity
       User.findOne({ email: email }, function (err, user) {
