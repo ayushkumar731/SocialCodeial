@@ -1,8 +1,7 @@
 module.exports.home=function(req,res){
 
-    res.cookie('user_id',25);
     return res.render('home',{
-        title:"home"
+        title:"Home Page"
     });
     // return res.end("<h1>controller is running</h1>");
 }

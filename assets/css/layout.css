@@ -1,21 +1,7 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-header{
-    background-color: black;
-    width: 100%;
-    color: white;
-    padding: 10px;
-    height: auto;
-}
-footer{
-    background-color: black;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    padding: 10px;
-    height: 3rem;
-    width: 100%;
-}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+main {
+  padding: 10px; }

@@ -1,0 +1,33 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #151515;
+    padding: 10px;
+
+    a{
+        text-decoration: none;
+        color: white;
+        font-size: 1.6rem;
+        color: darkorange;
+    }
+    ul{
+        list-style: none;
+        display: flex;
+        
+        li{
+            margin: 0 1rem;
+
+            #user_name{
+                color: cyan;
+                font-size: 1.3rem;
+                font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            
+            a{
+                font-size: 1.3rem;
+                color: white;
+                font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+        }
+    }
+}
