@@ -1,7 +1,33 @@
 const Post=require('../models/post');
 const User=require('../models/user');
 
-module.exports.home=function(req,res){
+module.exports.home= async function(req,res){
+
+    try{
+            //populate the user for each post
+        let posts= await Post.find({})
+        .populate('user')
+        .populate({
+            path:'comments',
+            populate:{
+                path:'user'
+            }
+        });
+
+        let users=await User.find({});
+    
+        return res.render('home',{
+            title:"Home Page",
+            posts:posts,
+            all_users:users
+        });
+            
+    }catch(err){
+        console.log('Error',err);
+        return;
+    }
+
+    
 
     // Post.find({},function(err,posts){
 
@@ -10,29 +36,6 @@ module.exports.home=function(req,res){
     //             posts:posts
     //         });
     // });
-
-    //populate the user for each post
-    Post.find({})
-    .populate('user')
-    .populate({
-        path:'comments',
-        populate:{
-            path:'user'
-        }
-    })
-    
-    .exec(function(err,posts){
-
-        User.find({},function(err,users){
-            return res.render('home',{
-                title:"Home Page",
-                posts:posts,
-                all_users:users
-        });
-        
-        });
-    });
-
 
     // return res.render('home',{
     //     title:"Home Page"
