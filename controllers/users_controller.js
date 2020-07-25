@@ -17,9 +17,11 @@ module.exports.profile=function(req,res){
 module.exports.update=function(req,res){
     if(req.user.id==req.params.id){
         User.findByIdAndUpdate(req.params.id,req.body,function(err,user){
+            req.flash('success', 'Updated!');
             return res.redirect('back');
         });
     }else{
+        req.flash('error', 'Unauthorized!');
         return res.status(401).send('Unauthorized');
     }
 }
@@ -55,15 +57,22 @@ module.exports.create=function(req,res){
     }
 
     User.findOne({email:req.body.email},function(err,user){
-        if(err){console.log('error in finding user in signing up'); return}
+        if(err){
+            req.flash('error', err);
+             return;
+    }
 
         if(!user){
             User.create(req.body,function(err,user){
-                if(err){console.log('error in Creating user whilesigning up'); return}
+                if(err){
+                    req.flash('error', err); 
+                    return;
+                }
 
                 return res.redirect('/users/sign-in');
             })
         }else{
+            req.flash('success', 'You have signed up, login to continue!');
             return res.redirect('back');
         }
 
