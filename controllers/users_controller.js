@@ -1,5 +1,4 @@
 const User=require('../models/user');
-const user = require('../models/user');
 
 module.exports.profile=function(req,res){
 
@@ -28,6 +27,9 @@ module.exports.update=async function(req,res){
         try{
             let user=await User.findById(req.params.id);
             User.uploadedAvatar(req,res,function(err){
+                if(err){
+                    console.log('multer error',err);
+                }
                 user.name=req.body.name;
                 user.email=req.body.email;
                 if(req.file){
@@ -38,7 +40,8 @@ module.exports.update=async function(req,res){
                 return res.redirect('back');
             })
         }catch(err){
-
+            req.flash('error',err);
+            return res.redirect('back');
         }
     }
 
