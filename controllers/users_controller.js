@@ -98,7 +98,6 @@ module.exports.create=function(req,res){
                     req.flash('error', err); 
                     return;
                 }
-
                 return res.redirect('/users/sign-in');
             })
         }else{
