@@ -18,7 +18,7 @@ let transporter = nodemailer.createTransport({
       let mailHTML;
       ejs.renderFile(
           path.join(__dirname,'../views/mailers',relativePath),
-          date,
+          data,
           function(err,template){
               if(err){
                   console.log('error in rendering template');
